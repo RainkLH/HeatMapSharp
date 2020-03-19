@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeatMap", "HeatMap\HeatMap.csproj", "{E56A3B93-5CC4-4F80-8D66-B7E8B498A2B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDebug", "ConsoleDebug\ConsoleDebug.csproj", "{7F20357C-BA49-4554-8065-88378D6EF89B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E56A3B93-5CC4-4F80-8D66-B7E8B498A2B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56A3B93-5CC4-4F80-8D66-B7E8B498A2B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56A3B93-5CC4-4F80-8D66-B7E8B498A2B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E56A3B93-5CC4-4F80-8D66-B7E8B498A2B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F20357C-BA49-4554-8065-88378D6EF89B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F20357C-BA49-4554-8065-88378D6EF89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F20357C-BA49-4554-8065-88378D6EF89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F20357C-BA49-4554-8065-88378D6EF89B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5B338FC-4621-4561-87D1-BFA788DDA055}
+	EndGlobalSection
+EndGlobal

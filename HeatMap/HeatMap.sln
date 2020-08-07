@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeatMap", "HeatMap\HeatMap.csproj", "{E56A3B93-5CC4-4F80-8D66-B7E8B498A2B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeatMap", "HeatMap\HeatMap.csproj", "{E56A3B93-5CC4-4F80-8D66-B7E8B498A2B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDebug", "ConsoleDebug\ConsoleDebug.csproj", "{7F20357C-BA49-4554-8065-88378D6EF89B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDebug", "ConsoleDebug\ConsoleDebug.csproj", "{7F20357C-BA49-4554-8065-88378D6EF89B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoForm", "DemoForm\DemoForm.csproj", "{2064C1E5-1905-41C4-B2D5-984F33AD2C3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7F20357C-BA49-4554-8065-88378D6EF89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F20357C-BA49-4554-8065-88378D6EF89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F20357C-BA49-4554-8065-88378D6EF89B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2064C1E5-1905-41C4-B2D5-984F33AD2C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2064C1E5-1905-41C4-B2D5-984F33AD2C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2064C1E5-1905-41C4-B2D5-984F33AD2C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2064C1E5-1905-41C4-B2D5-984F33AD2C3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

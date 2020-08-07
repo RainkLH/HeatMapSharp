@@ -1,0 +1,12 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/HeatMap/.vs/HeatMap
+/HeatMap/ConsoleDebug/bin/Debug/netcoreapp3.1
+/HeatMap/ConsoleDebug/obj
+/HeatMap/DemoForm/bin/Debug
+/HeatMap/DemoForm/obj/Debug
+/HeatMap/HeatMap/bin/Debug/netcoreapp3.1
+/HeatMap/HeatMap/obj
+/HeatMap/packages

@@ -190,17 +190,31 @@ namespace HeatMap
                 }
             }
         }
-
-        public void SetDatas(List<DataType> datas)
+        private readonly Dictionary<double,double[,]> MultiplyKernelDic =new Dictionary<double, double[,]>();
+        private readonly object _obj = new object();
+        public unsafe void SetDatas(List<DataType> datas)
         {
-            foreach (DataType data in datas)
+            Parallel.For(0, datas.Count, ix =>
             {
-                int i, j, tx, ty, ir, jr;
+                DataType data = datas[ix];
+                int i, j;
+                int ty, ir, jr;
                 int radius = gSize >> 1;
 
                 int x = data.X;
                 int y = data.Y;
-                double[,] kernelMultiplied = MultiplyKernel(data.Weight);
+                double weight = Math.Round(data.Weight, 2);
+                if (!MultiplyKernelDic.TryGetValue(weight, out var kernelMultiplied))
+                {
+                    lock (_obj)
+                    {
+                        if (!MultiplyKernelDic.TryGetValue(weight, out kernelMultiplied))
+                        {
+                            kernelMultiplied = MultiplyKernel(weight);
+                            MultiplyKernelDic.Add(weight, kernelMultiplied);
+                        }
+                    }
+                }
 
                 for (i = 0; i < gSize; i++)
                 {
@@ -223,7 +237,7 @@ namespace HeatMap
                     for (j = 0; j < gSize; j++)
                     {
                         jr = j - radius;
-                        tx = x + jr;
+                        var tx = x + jr;
 
                         // skip column
                         if (tx < 0)
@@ -237,18 +251,21 @@ namespace HeatMap
                         }
                     }
                 }
-            }
-
+            });
         }
-
-        public void SetAData(DataType data)
+        
+        public unsafe void SetAData(DataType data)
         {
             int i, j, tx, ty, ir, jr;
             int radius = gSize >> 1;
 
             int x = data.X;
             int y = data.Y;
-            double[,] kernelMultiplied = MultiplyKernel(data.Weight);
+            if (!MultiplyKernelDic.TryGetValue(data.Weight, out var kernelMultiplied))
+            {
+                kernelMultiplied = MultiplyKernel(data.Weight);
+                MultiplyKernelDic.Add(data.Weight, kernelMultiplied);
+            }
 
             for (i = 0; i < gSize; i++)
             {
@@ -292,7 +309,7 @@ namespace HeatMap
 
             int bytesPerPixel = System.Drawing.Bitmap.GetPixelFormatSize(processedBitmap.PixelFormat) / 8;
             int heightInPixels = bitmapData.Height;
-            int widthInBytes = bitmapData.Width * bytesPerPixel;
+            int widthInBytes = bitmapData.Width;
             byte* ptrFirstPixel = (byte*)bitmapData.Scan0;
 
             Parallel.For(0, heightInPixels, h =>
@@ -300,15 +317,6 @@ namespace HeatMap
                 byte* currentLine = ptrFirstPixel + (h * bitmapData.Stride);
                 for (int w = 0; w < widthInBytes; w++)
                 {
-                    int oldBlue = currentLine[w];
-                    int oldGreen = currentLine[w + 1];
-                    int oldRed = currentLine[w + 2];
-
-                    currentLine[w] = (byte)oldBlue;
-                    currentLine[w + 1] = (byte)oldGreen;
-                    currentLine[w + 2] = (byte)oldRed;
-
-
                     int colorIndex = double.IsNaN(heatVals[h, w]) ? 0 : (int)heatVals[h, w];
                     var wib = w * 4;
                     currentLine[wib] = ColorArgbValues[4 * colorIndex];

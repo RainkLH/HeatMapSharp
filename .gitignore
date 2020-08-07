@@ -3,3 +3,10 @@
 ################################################################################
 
 /HeatMap/.vs/HeatMap
+/HeatMap/ConsoleDebug/bin/Debug/netcoreapp3.1
+/HeatMap/ConsoleDebug/obj
+/HeatMap/DemoForm/bin/Debug
+/HeatMap/DemoForm/obj/Debug
+/HeatMap/HeatMap/bin/Debug/netcoreapp3.1
+/HeatMap/HeatMap/obj
+/HeatMap/packages
